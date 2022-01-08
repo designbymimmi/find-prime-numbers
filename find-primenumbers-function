@@ -1,0 +1,24 @@
+// Function to find prime numbers
+// Prime number is a number only divisible by 1 and itself
+function primeFinder(n) {
+  let numArr = [];
+  let keepTrack = 0;
+
+  for (let i = 2; i < n + 1; i++) {
+    for (let j = 2; j < i; j++) {
+      // check the modula for each number     between 2 and the number in question
+      // if it's never 0 then it's a prime
+      if (i % j === 0) {
+        keepTrack++;
+      }
+    }
+    if (keepTrack === 0) {
+      numArr.push(i);
+    } else {
+      // reset keepTrack for next loop
+      keepTrack = 0;
+    }
+  }
+
+  return numArr;
+}
